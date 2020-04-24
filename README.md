@@ -1,6 +1,5 @@
 # Trending Repos
 
-- theming
 - redux
 - homepage
 - List the most popular repos from last week
@@ -20,4 +19,12 @@ Focus on:
 - CSS naming
 - conventions
 - unit tests
+
+## Notes
+
+Redux is overkill here, a simple `useState` hook would have been more efficient.
+
+## Conventions
+
+Files are named in kebab-case and no default exports are used.
 
