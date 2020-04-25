@@ -4,6 +4,7 @@ import { Repos as Component} from './repos'
 const mapStateToProps = state => (
     {
         repos: state.repos,
+        filters: state.filters,
     }
 )
 
