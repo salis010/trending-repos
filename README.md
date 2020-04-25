@@ -1,14 +1,16 @@
 # Trending Repos
 
-NEXT: in root-reducer, create a `case SET_STAR:` that toggles on/off the starred status of the repo bearing the provided id
-
-- Store starring in localStorage. Is the best place to execute this a useEffect inside Star? Would deep nesting be an issue?
 - Make Star a common component
 - mobile responsive
 - use Map, in get-update-repos...and rename this file to use 'updated'
 - Jest tests
-- Cypress tests
 - prop types
+- delete mockData
+- Cypress tests
+- Finalize README
+
+
+
 
 Focus on:
 - concise and clean code
@@ -22,6 +24,8 @@ Focus on:
 A rank number shows the actual ranking of the repo based on the numebr of stars received.
 
 When pressing the star, the repo gets starred/destarred. The star count changes accordingly.
+
+Explain what starringChanged does and the respective useEffect. The stars count is also incremented if the repo id is present in localStorage.
 
 The arrow at the top-right of each repo toggles the display of futher information.
 

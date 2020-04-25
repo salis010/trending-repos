@@ -4,6 +4,8 @@ import { githubApiUrl, repoFields } from '../../constants'
 import { trimRepos } from '../../utils/trim-repos'
 import { FilterBar } from '../filter-bar'
 import { Repos } from '../repos/index'
+import { updateReposFromLocalStorage } from '../../utils/update-repos-from-local-storage'
+import { setLocalStorage } from '../../utils/set-local-storage'
 
 const H1 = styled.h1`
 	font-style: 3rem;
@@ -3011,19 +3013,29 @@ const mockData = {
 	]
   }
 
-export const App = ({ setRepos }) => {
+export const App = ({ repos, starringChanged, setRepos }) => {
 	
 	// useEffect(() => {
 	// 	fetch(githubApiUrl)
 	// 		.then(response => response.json())
 	// 		.then(data => trimRepos(data.items, repoFields))
 	// 		.then(data => setRepos(data))
+	//		.then(read the starred one from localStorage)
 	// 		.catch(err => console.log(err))
 	// }, [])
 
 	useEffect(() => {
-		setRepos(trimRepos(mockData.items, repoFields))
+		const trimmedRepos = trimRepos(mockData.items, repoFields)
+		const updatedRepos = updateReposFromLocalStorage(trimmedRepos)
+		setRepos(updatedRepos)
 	}, [])
+
+	useEffect(() => {
+		if(repos.length) {
+			setLocalStorage(repos)
+		}
+				
+	}, [starringChanged])
 
 	return (
 		<>
