@@ -1,6 +1,5 @@
 # Trending Repos
 
-- Make Star a common component
 - mobile responsive
 - use Map, in get-update-repos...and rename this file to use 'updated'
 - Jest tests

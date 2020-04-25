@@ -1,19 +1,20 @@
 export const getUpdatedRepos = (repos, id, field) => {
+
     const arr = repos.concat()
 
-    for(let i in arr) {
-        if(arr[i].id == id) {
-            arr[i][field] = !arr[i][field]
+    arr.forEach(repo => {
+        if(repo.id == id) {
+            repo[field] = !repo[field]
 
-            if(field == 'starred') {
-                if(arr[i][field]) {
-                    arr[i].stargazers_count++
+            if(field === 'starred') {
+                if(repo[field]) {
+                    repo.stargazers_count++
                 } else {
-                    arr[i].stargazers_count--
+                    repo.stargazers_count--
                 }
             }
         }
-    }
+    })
 
     return arr
 }

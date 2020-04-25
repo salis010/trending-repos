@@ -3025,12 +3025,16 @@ export const App = ({ repos, starringChanged, setRepos }) => {
 	// }, [])
 
 	useEffect(() => {
+		
 		const trimmedRepos = trimRepos(mockData.items, repoFields)
 		const updatedRepos = updateReposFromLocalStorage(trimmedRepos)
+		
 		setRepos(updatedRepos)
+		
 	}, [])
 
 	useEffect(() => {
+
 		if(repos.length) {
 			setLocalStorage(repos)
 		}
