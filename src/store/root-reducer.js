@@ -1,12 +1,13 @@
 import { SET_REPOS, SET_EXPANDED, SET_STAR, SET_LANGUAGE_FILTER, SET_STAR_FILTER } from './action-types'
-import { getUpdatedRepos } from '../utils/get-update-repos'
+import { getUpdatedRepos } from '../utils/get-updated-repos'
 
 const initialState = {
     repos: [],
     filters: {
         starred: false,
         language: 'all',
-    }
+    },
+    starringChanged: 0,
 }
 
 export const rootReducer = (state = initialState, action) => {
@@ -17,7 +18,7 @@ export const rootReducer = (state = initialState, action) => {
             return { ...state, repos: action.payload }
 
         case SET_STAR:
-            return { ...state, repos: getUpdatedRepos(state.repos, action.payload, 'starred') }
+            return { ...state, repos: getUpdatedRepos(state.repos, action.payload, 'starred'), starringChanged: state.starringChanged + 1 }
 
         case SET_EXPANDED:
             return { ...state, repos: getUpdatedRepos(state.repos, action.payload, 'expanded') }
