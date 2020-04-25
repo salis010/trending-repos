@@ -7,10 +7,11 @@ const ReposWrapper = styled.div`
     flex-direction: column;
 `
 
-export const Repos = ({ repos }) => 
+export const Repos = ({ repos, filters }) =>
     <ReposWrapper>
         {repos
-            .filter(repo => repo.filtered)
+            .filter(repo => 
+                (filters.starred ? repo.starred === filters.starred : true) && (filters.language == 'all' ? true : repo.languages.includes(filters.language)))
             .map(repo =>
                 <Repo 
                     key={repo.id} 

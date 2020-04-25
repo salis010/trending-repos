@@ -2,11 +2,8 @@
 
 NEXT: in root-reducer, create a `case SET_STAR:` that toggles on/off the starred status of the repo bearing the provided id
 
-- Filter by stars
-- Filter by language
 - Store starring in localStorage. Is the best place to execute this a useEffect inside Star? Would deep nesting be an issue?
-- The starred repositories, should be visible either through a filter or in a different tab
-- Some basic info of the repo should be displayed, such as: repo name, link to GitHub, description and number of stars
+- Make Star a common component
 - mobile responsive
 - use Map, in get-update-repos...and rename this file to use 'updated'
 - Jest tests
