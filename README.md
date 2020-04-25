@@ -8,6 +8,7 @@ NEXT: in root-reducer, create a `case SET_STAR:` that toggles on/off the starred
 - The starred repositories, should be visible either through a filter or in a different tab
 - Some basic info of the repo should be displayed, such as: repo name, link to GitHub, description and number of stars
 - mobile responsive
+- use Map, in get-update-repos...and rename this file to use 'updated'
 - Jest tests
 - Cypress tests
 - prop types
