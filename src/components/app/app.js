@@ -23,10 +23,17 @@ export const App = ({ repos, starringChanged, setRepos }) => {
 			.then(response => response.json())
 			.then(data => {
 				const trimmedRepos = trimRepos(data.items, repoFields)
-				const starred = localStorage.getItem('starred').split(',').map(id => +id)
-				const updatedRepos = updateReposFromLocalStorage(trimmedRepos, starred)
+				
+				const starredStorage = localStorage.getItem('starred')
 
-				setRepos(updatedRepos)
+				if(starredStorage) {
+					const starred = starredStorage.split(',').map(id => +id)
+					const updatedRepos = updateReposFromLocalStorage(trimmedRepos, starred)
+					setRepos(updatedRepos)
+				} else {
+					setRepos(trimmedRepos)
+				}
+				
 			})
 			.catch(err => console.log(err))
 	}, [])
