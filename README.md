@@ -1,7 +1,5 @@
 # Trending Repos
 
-- delete mockData
-- Cypress tests
 - Finalize README
 
 
@@ -20,7 +18,7 @@ When pressing the star, the repo gets starred/destarred. The star count changes 
 
 Explain what starringChanged does and the respective useEffect. The stars count is also incremented if the repo id is present in localStorage.
 
-The arrow at the top-right of each repo toggles the display of futher information.
+Language filter can be used to show just the repos that use the respective language.
 
 ## Notes
 
