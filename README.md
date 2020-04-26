@@ -1,50 +1,67 @@
 # Trending Repos
 
-- Finalize README
+![](src/images/screenshot.png)
 
+## Intro
 
-Focus on:
-- concise and clean code
-- use of semantic HTML
-- CSS naming
-- conventions
-- unit tests
+An app which shows the most popular repos from github, ranked in descending order according to the number of awarded stars.
+
+## Run
+
+- Clone https://github.com/salis010/trending-repos
+- Install packages `npm i`
+- Run server: npm run start
+- In the browser go to http://localhost:3000/
+
+## Tech
+
+- React
+- Redux
+- Styled Components
+- Jest
+
+## How it Works
+
+In `./srccomponents/app/index.js`, a React hook:
+- fetches data from GitHub's api
+- unnecessary data is trimmed
+- properties such as 'starred' are added
+- `localStorage` is checked to see if any stored items with respect to starring is present, in which case the data is updated accordingly
+- the data is save to a Redux Store 
 
 ## Features
 
-A rank number shows the actual ranking of the repo based on the numebr of stars received.
+### Starring
 
-When pressing the star, the repo gets starred/destarred. The star count changes accordingly.
+When pressing a repo's star, the repo gets starred/de-starred. The star count increments/decrements accordingly.
 
-Explain what starringChanged does and the respective useEffect. The stars count is also incremented if the repo id is present in localStorage.
+This app does not post the 'star' vote to github.
 
-Language filter can be used to show just the repos that use the respective language.
+Instead it records all the 'starred' repos in `localStorage`
 
-## Notes
+It has to be ascertained that `localStorage` is updated only after the starring is successful, i.e., it has reached the store.
 
-The sequence how I dealt with this project is not what I usuall do.
+To achieve this, a `useEffect` monitors a property stored in state which changes when a repo is starred / de-starred:
 
-Redux is overkill here, a simple `useState` hook would have been more efficient.
+```
+useEffect(() => {
+	...
+			
+    localStorage.setItem('starred', starred)
+    }				
+}, [starringChanged])
+```
 
-### Languages
+When the app loads or the browser is refreshed, 'localStorage' is checked for any stored starred repos, the respective repos data gets updated with a 'starred' flag, and the number of stars get incremented.
 
-github's api has a limit of 60 requests per hour. Fetching the languages per repo requires an additional api query per repo.
+Starred repos can be filtered by pressing the star at the top-right.
 
-Thus to get the information for 30 repos requires 31 api calls. Therefore only one call per hour is possible.
+### Repo Languages
 
-As such the languages data was mocked.
+Repos can be filtered by programming language.
 
-### The 'getUpdatedRepos' Function
+However, the languages had to be mocked, since github limits api queries for unauthenticated users to 60 per hour, and fetching the languages per repo, 30 in all, requires a seperate query each.
 
-`src/utils/update-repos.js`
+Thus to get the languages for 30 repos requires 31 api calls. Therefore, using github's api, obtaining the languages per repo can only be run once per hour.
 
-This function changes the 'starred' or 'expanded' status of the repo with the specified id.
-
-Very importantly it does not change the original array, since this would be equivalent of changing the state directly, and infringing the immutability principle.
-
-If the field being changed is the 'starred' flag, the number of stars are incremented/decremented accordingly.
-
-## Conventions
-
-Files are named in kebab-case and no default exports are used.
-
+Therefore languages are mocked by assigning three random languages to each repo.
