@@ -1,12 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Text = styled.p`
-    font-size: 1.4rem;
+
+const H2 = styled.h2`
+    font-size: 1rem;
     font-weight: 800;
-    margin: 0 2rem;
-    color: gray;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    margin: 0 0.5rem;
+    color: ${props => props.theme.colors.h2Color};
+
+    @media only screen and (min-width: ${props => props.theme.breakpoint}) {
+        font-size: 1.4rem;
+        margin: 0 2rem;
+    }
 `
 
 export const Name = ({ name }) =>
-    <Text>{name}</Text>
+        <H2>{name}</H2>

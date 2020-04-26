@@ -7,16 +7,31 @@ import { P } from '../../common'
 const RepoWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    margin-bottom: 2rem;
-    padding: 0 ${props => props.theme.margin};
-    border: 1px solid grey;
-    border-radius: 1rem;
+    margin-bottom: ${props => props.theme.margin};
+    padding: 0 ${props => props.theme.marginMobile};
+    border: 3px solid ${props => props.theme.colors.borderColor};
+    border-radius: 0.5rem;
+
+    @media only screen and (min-width: ${props => props.theme.breakpoint}) {
+        margin-bottom: 2rem;
+        padding: 0 ${props => props.theme.margin};
+    }
+`
+
+const DescriptionWrapper = styled.div`
+    margin: ${props => props.theme.marginMobile} 0;
+
+    @media only screen and (min-width: ${props => props.theme.breakpoint}) {
+        margin: ${props => props.theme.margin} 0;
+    }
 `
 
 export const Repo = ({ id, rank, name, starred, expanded, description, forks_count, html_url, languages, stargazers_count }) =>    
     <RepoWrapper>
         <RepoHeader id={id} rank={rank} name={name} starred={starred} expanded={expanded} />
-        <P>{description}</P>
+        <DescriptionWrapper>
+            <P>{description}</P>
+        </DescriptionWrapper>
         {expanded && 
             <MoreInfo 
                 stargazers_count={stargazers_count}

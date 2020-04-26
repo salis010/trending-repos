@@ -6,10 +6,17 @@ import starFilled from '../../images/star-filled.png'
 
 const StarFilterWrapper = styled.div`
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-left: ${props => props.theme.margin};
 `
 
-const Select = styled.select`
-
+const Label = styled.p`
+    font-size: ${props => props.theme.textSize};
+    margin-top: 0.5rem 0;
+    color: ${props => props.theme.colors.text};
+    background-color: #e8f38b;
 `
 
 export const StarFilter = ({ starred, setStarFilter }) => {
@@ -17,7 +24,7 @@ export const StarFilter = ({ starred, setStarFilter }) => {
     
     return (
         <StarFilterWrapper>
-            <label>Show starred only:</label>
+            <Label>Show starred only:</Label>
             <Img 
                 onClick={setStarFilter}
                 src={starred ?  starFilled : starHollow} 

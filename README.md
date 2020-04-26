@@ -1,12 +1,9 @@
 # Trending Repos
 
-- mobile responsive
 - prop types
 - delete mockData
 - Cypress tests
 - Finalize README
-
-
 
 
 Focus on:

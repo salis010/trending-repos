@@ -2,15 +2,13 @@ import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { githubApiUrl, repoFields } from '../../constants'
 import { trimRepos } from '../../utils/trim-repos'
+import { Header } from '../header'
 import { FilterBar } from '../filter-bar'
 import { Repos } from '../repos/index'
 import { updateReposFromLocalStorage } from '../../utils/update-repos-from-local-storage'
 import { getStarredRepos } from '../../utils/get-starred-repos'
 
-const H1 = styled.h1`
-	font-style: 3rem;
-	color: ${props => props.theme.colors.primary};
-`
+
 
 const mockData = {
 	"total_count": 21839810,
@@ -2217,7 +2215,7 @@ const mockData = {
 	  {
 		"id": 154931607,
 		"node_id": "MDEwOlJlcG9zaXRvcnkxNTQ5MzE2MDc=",
-		"name": "react-with-hooks",
+		"name": "reactwithhooks",
 		"full_name": "yesmeck/react-with-hooks",
 		"private": false,
 		"owner": {
@@ -3012,6 +3010,12 @@ const mockData = {
 	  }
 	]
   }
+  
+  const PageWrapper = styled.div`
+	 display: flex;
+	 flex-direction: column;
+	 margin: 0  ${props => props.theme.margin}; 
+  `
 
 export const App = ({ repos, starringChanged, setRepos }) => {
 	
@@ -3046,9 +3050,11 @@ export const App = ({ repos, starringChanged, setRepos }) => {
 
 	return (
 		<>
-			<H1>Trending Repos</H1>
+			<Header title='GitHub Trending Repos' />
 			<FilterBar />
-			<Repos />
+			<PageWrapper>
+				<Repos />
+			</PageWrapper>
 		</>
 	)
 }
