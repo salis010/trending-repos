@@ -40,7 +40,9 @@ export const MoreInfo = ({ stargazers_count, forks_count, html_url, languages })
         <LabelP>Forks:</LabelP>
         <P>{forks_count}</P>
         <LabelP>Link:</LabelP>
-        <P><A href='html_url'>{html_url}</A></P>
+        <P>
+            <A href={html_url} target='_blank'>{html_url}</A>
+        </P>
         <LabelP>Languages:</LabelP>
         <P>{languages.join(', ')}</P>
     </InfoGrid>
