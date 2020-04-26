@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { P } from '../../common'
 import { GithubLink } from './github-link'
@@ -27,3 +28,10 @@ export const MoreInfo = ({ stargazers_count, forks_count, html_url, languages })
         <LabelP>Languages:</LabelP>
         <P>{languages.join(', ')}</P>
     </InfoGrid>
+
+MoreInfo.propTypes = {
+    forks_count: PropTypes.number.isRequired,
+    html_url: PropTypes.string.isRequired,
+    languages: PropTypes.array.isRequired,
+    stargazers_count: PropTypes.number.isRequired,
+}

@@ -1,6 +1,5 @@
 # Trending Repos
 
-- prop types
 - delete mockData
 - Cypress tests
 - Finalize README
@@ -24,6 +23,8 @@ Explain what starringChanged does and the respective useEffect. The stars count 
 The arrow at the top-right of each repo toggles the display of futher information.
 
 ## Notes
+
+The sequence how I dealt with this project is not what I usuall do.
 
 Redux is overkill here, a simple `useState` hook would have been more efficient.
 

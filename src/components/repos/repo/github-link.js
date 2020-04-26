@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 
@@ -38,3 +39,7 @@ export const GithubLink = ({ url }) =>
     <GithubLinkWrapper>
         <A href={url} target='_blank' >GitHub</A>
     </GithubLinkWrapper>
+
+GithubLink.propTypes = {
+    url: PropTypes.string.isRequired,
+}

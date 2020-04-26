@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 
@@ -18,3 +19,7 @@ const H2 = styled.h2`
 
 export const Name = ({ name }) =>
         <H2>{name}</H2>
+
+Name.propTypes = {
+    name: PropTypes.string.isRequired,
+}

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { RepoHeader } from './repo-header'
 import { MoreInfo } from './more-info'
@@ -42,3 +43,17 @@ export const Repo = ({ id, rank, name, starred, expanded, description, forks_cou
             />
         }
     </RepoWrapper>
+
+
+Repo.propTypes = { 
+    description: PropTypes.string,
+    expanded: PropTypes.bool.isRequired,
+    forks_count: PropTypes.number.isRequired,
+    html_url: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    languages: PropTypes.array.isRequired,
+    name: PropTypes.string.isRequired,
+    rank: PropTypes.number.isRequired,
+    stargazers_count: PropTypes.number.isRequired,
+    starred: PropTypes.bool.isRequired,
+}

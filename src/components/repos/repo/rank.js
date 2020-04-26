@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const RankWrapper = styled.div`
@@ -32,3 +33,7 @@ export const Rank = ({ rank }) =>
     <RankWrapper>
         <Number>{rank}</Number>
     </RankWrapper>
+
+Rank.propTypes = {
+    rank: PropTypes.number.isRequired,
+}

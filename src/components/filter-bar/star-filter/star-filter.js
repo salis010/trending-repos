@@ -1,8 +1,9 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Img } from '../common'
-import starHollow from '../../images/star-hollow.png'
-import starFilled from '../../images/star-filled.png'
+import { Img } from '../../common'
+import starHollow from '../../../images/star-hollow.png'
+import starFilled from '../../../images/star-filled.png'
 
 const StarFilterWrapper = styled.div`
     display: flex;
@@ -21,7 +22,6 @@ const Label = styled.p`
 
 export const StarFilter = ({ starred, setStarFilter }) => {
     
-    
     return (
         <StarFilterWrapper>
             <Label>Show starred only:</Label>
@@ -32,4 +32,9 @@ export const StarFilter = ({ starred, setStarFilter }) => {
             />
         </StarFilterWrapper>
     )
+}
+
+StarFilter.propTypes = { 
+    setStarFilter: PropTypes.func.isRequired,
+    starred: PropTypes.bool.isRequired,
 }
