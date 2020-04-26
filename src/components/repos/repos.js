@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Repo } from './repo/repo'
 
@@ -29,3 +30,8 @@ export const Repos = ({ repos, filters }) =>
             )
         }
     </ReposWrapper>
+
+Repos.propTypes = { 
+    filters: PropTypes.object.isRequired,
+    repos: PropTypes.array.isRequired,
+}

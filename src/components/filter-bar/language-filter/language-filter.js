@@ -1,6 +1,7 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { popularLanguages } from '../../constants'
+import { popularLanguages } from '../../../constants'
 
 
 const Select = styled.select`
@@ -27,4 +28,8 @@ export const LanguageFilter = ({ setLanguageFilter }) => {
             )}
         </Select>
     )
+}
+
+LanguageFilter.propTypes = {
+    setLanguageFilter: PropTypes.func.isRequired,
 }

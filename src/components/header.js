@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const HeaderWrapper = styled.header`
@@ -22,3 +23,8 @@ export const Header = ({ title }) =>
     <HeaderWrapper>
         <H1>{title}</H1>
     </HeaderWrapper>
+
+
+Header.propTypes = {
+    title: PropTypes.string.isRequired,
+}

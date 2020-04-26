@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import { githubApiUrl, repoFields } from '../../constants'
 import { trimRepos } from '../../utils/trim-repos'
 import { Header } from '../header'
-import { FilterBar } from '../filter-bar'
+import { FilterBar } from '../filter-bar/index'
 import { Repos } from '../repos/index'
 import { updateReposFromLocalStorage } from '../../utils/update-repos-from-local-storage'
 import { getStarredRepos } from '../../utils/get-starred-repos'
@@ -3057,4 +3058,10 @@ export const App = ({ repos, starringChanged, setRepos }) => {
 			</PageWrapper>
 		</>
 	)
+}
+
+App.propTypes = {
+	repos: PropTypes.array.isRequired,
+	starringChanged: PropTypes.number.isRequired,
+	setRepos: PropTypes.func.isRequired,
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Rank } from './rank'
 import { Name } from './name'
@@ -28,3 +29,12 @@ export const RepoHeader = ({ id, rank, name, starred, expanded }) =>
             <MoreInfoButton id={id} expanded={expanded} />
         </Container>
     </RepoHeaderWrapper>
+
+
+RepoHeader.propTypes = { 
+    expanded: PropTypes.bool.isRequired,
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    rank: PropTypes.number.isRequired,
+    starred: PropTypes.bool.isRequired,
+}
