@@ -14,6 +14,7 @@ const RepoHeaderWrapper = styled.div`
 const Container = styled.div`
     display: flex;    
     align-items: center;
+    max-width: 70%;
 `
 
 export const RepoHeader = ({ id, rank, name, starred, expanded }) => 

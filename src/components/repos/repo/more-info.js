@@ -1,36 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
 import { P } from '../../common'
+import { GithubLink } from './github-link'
 
 
 const InfoGrid = styled.div`
     display: grid;
     grid-template-columns: 1fr 10fr;
+    align-items: center;
     margin-bottom: ${props => props.theme.margin};
 `
 
 const LabelP = styled.p`
     font-size: 1.2rem;
-    margin: 0.3rem;
-    color: RGB(100, 100, 150);
-`
-
-export const A = styled.a`
-    color: ${props => props.theme.colors.primary};
-    
-    text-decoration: none;
-
-    &:visited {
-        text-decoration: none;
-    }
-
-    &:hover {
-        text-decoration: none;
-    }
-
-    &:active {
-        text-decoration: none;
-    }
+    color: ${props => props.theme.colors.labelColor};
 `
 
 export const MoreInfo = ({ stargazers_count, forks_count, html_url, languages }) =>
@@ -40,9 +23,7 @@ export const MoreInfo = ({ stargazers_count, forks_count, html_url, languages })
         <LabelP>Forks:</LabelP>
         <P>{forks_count}</P>
         <LabelP>Link:</LabelP>
-        <P>
-            <A href={html_url} target='_blank'>{html_url}</A>
-        </P>
+        <GithubLink url={html_url} />
         <LabelP>Languages:</LabelP>
         <P>{languages.join(', ')}</P>
     </InfoGrid>
