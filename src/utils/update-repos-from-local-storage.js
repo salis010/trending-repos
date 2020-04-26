@@ -1,8 +1,6 @@
-export const updateReposFromLocalStorage = repos => {
+export const updateReposFromLocalStorage = (repos, starred) => {
 
-    const starred = localStorage.getItem('starred').split(',').map(id => +id)
-
-    const updatedRepos = repos.concat()
+    const updatedRepos = JSON.parse(JSON.stringify(repos))
 
     updatedRepos.forEach(repo => {
         

@@ -5,7 +5,7 @@ import { trimRepos } from '../../utils/trim-repos'
 import { FilterBar } from '../filter-bar'
 import { Repos } from '../repos/index'
 import { updateReposFromLocalStorage } from '../../utils/update-repos-from-local-storage'
-import { setLocalStorage } from '../../utils/set-local-storage'
+import { getStarredRepos } from '../../utils/get-starred-repos'
 
 const H1 = styled.h1`
 	font-style: 3rem;
@@ -3027,7 +3027,8 @@ export const App = ({ repos, starringChanged, setRepos }) => {
 	useEffect(() => {
 		
 		const trimmedRepos = trimRepos(mockData.items, repoFields)
-		const updatedRepos = updateReposFromLocalStorage(trimmedRepos)
+		const starred = localStorage.getItem('starred').split(',').map(id => +id)
+		const updatedRepos = updateReposFromLocalStorage(trimmedRepos, starred)
 		
 		setRepos(updatedRepos)
 		
@@ -3036,7 +3037,9 @@ export const App = ({ repos, starringChanged, setRepos }) => {
 	useEffect(() => {
 
 		if(repos.length) {
-			setLocalStorage(repos)
+			const starred = getStarredRepos(repos)
+			
+			localStorage.setItem('starred', starred)
 		}
 				
 	}, [starringChanged])

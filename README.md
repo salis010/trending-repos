@@ -1,8 +1,6 @@
 # Trending Repos
 
 - mobile responsive
-- use Map, in get-update-repos...and rename this file to use 'updated'
-- Jest tests
 - prop types
 - delete mockData
 - Cypress tests
